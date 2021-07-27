@@ -1,11 +1,11 @@
 import React from 'react'
-import CardQuestion from './components/card-question'
+import Layout from './components/layout'
 
 function App() {
   return (
     <React.Fragment>
       <h2 className="text-center text-3xl my-2">Simple Quiz</h2>
-      <CardQuestion />
+      <Layout />
     </React.Fragment>
   )
 }

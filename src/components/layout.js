@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import ResultsQuiz from './quiz/results'
 import Quiz from './quiz'
 import questions from '../data/questions'
-function CardQuestion() {
+function Layout() {
   const copyQuestions = questions
   function handleAnswerButtonClick() {
     const nextQuestion = currentQuestion + 1
@@ -35,4 +35,4 @@ function CardQuestion() {
   )
 }
 
-export default CardQuestion
+export default Layout
