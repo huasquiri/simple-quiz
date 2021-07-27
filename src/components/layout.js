@@ -4,6 +4,9 @@ import Quiz from './quiz'
 import questions from '../data/questions'
 function Layout() {
   const copyQuestions = questions
+  const [currentQuestion, setCurrentQuestion] = useState(0)
+  const [showScore, setShowScore] = useState(false)
+
   function handleAnswerButtonClick() {
     const nextQuestion = currentQuestion + 1
 
@@ -13,9 +16,6 @@ function Layout() {
       setShowScore(true)
     }
   }
-
-  const [currentQuestion, setCurrentQuestion] = useState(0)
-  const [showScore, setShowScore] = useState(false)
 
   return (
     <React.Fragment>
