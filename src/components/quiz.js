@@ -3,7 +3,7 @@ import MultipleChoice from './quiz/multiple-choice'
 import OneChoice from './quiz/one-choice'
 function Quiz({questions, currentQuestion, handleAnswerButtonClick}) {
   return (
-    <div className="flex justify-center max-w-2xl mx-auto rounded-lg">
+    <div className="flex justify-center mx-auto rounded-lg">
       <div className="p-2 bg-white shadow-sm flex-auto">
         <h3 className="text-2xl font-bold my-2">
           {questions[currentQuestion].question}
@@ -16,7 +16,7 @@ function Quiz({questions, currentQuestion, handleAnswerButtonClick}) {
           </span>
         </h5>
       </div>
-      <div className="p-2 bg-gray-50 shadow-sm flex-auto">
+      <div className="p-2 bg-white shadow-sm flex-auto">
         {questions[currentQuestion].typeOfQuestion === 'simple' ? (
           <OneChoice
             questions={questions}

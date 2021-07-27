@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import ResultsQuiz from './quiz/results'
 import Quiz from './quiz'
-import questions from '../data/questions'
+import questionsTogezer from '../data/questions-togezer'
 function Layout() {
-  const copyQuestions = questions
+  const copyQuestions = questionsTogezer
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [showScore, setShowScore] = useState(false)
 

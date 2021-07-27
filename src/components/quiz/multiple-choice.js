@@ -17,7 +17,7 @@ function MultipleChoice({questions, currentQuestion, handleAnswerButtonClick}) {
         onClick={() => handleAnswerButtonClick()}
         className="bg-yellow-500 text-white p-4 m-1 rounded-lg w-full"
       >
-        Next
+        Suivant
       </button>
     </React.Fragment>
   )
