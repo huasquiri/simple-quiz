@@ -19,6 +19,12 @@ function Layout() {
 
   return (
     <React.Fragment>
+      {currentQuestion > 0 ? (
+        <button
+          className="p-2 my-2 mx-2 bg-yellow-500 text-white rounded-sm"
+          onClick={() => setCurrentQuestion(0)}
+        >{`Retour à la page d'accueil`}</button>
+      ) : null}
       {showScore ? (
         <ResultsQuiz
           setShowScore={setShowScore}

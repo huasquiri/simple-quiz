@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-input[type='text'],
+/* input[type='text'],
 input[type='password'],
 input[type='email'],
 input[type='number'],
@@ -19,7 +19,7 @@ select,
 select[multiple],
 textarea {
   @apply rounded-md border-white border shadow-md bg-white;
-}
+} */
 body{
   @apply bg-gray-100;
 }

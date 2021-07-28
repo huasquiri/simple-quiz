@@ -3,20 +3,13 @@ import MultipleChoice from './quiz/multiple-choice'
 import OneChoice from './quiz/one-choice'
 function Quiz({questions, currentQuestion, handleAnswerButtonClick}) {
   return (
-    <div className="flex justify-center mx-auto rounded-lg">
-      <div className="p-2 bg-white shadow-sm flex-auto">
-        <h3 className="text-2xl font-bold my-2">
+    <React.Fragment>
+      <div className="flex">
+        <div className="text-3xl font-bold my-2 text-center text-gray-900">
           {questions[currentQuestion].question}
-        </h3>
-        <hr />
-        <h5 className="text-lg my-2">
-          Type of question:{' '}
-          <span className="rounded-xl mx-1 p-2 bg-gray-200 flex-1 font-bold text-gray-600">
-            {questions[currentQuestion].typeOfQuestion}
-          </span>
-        </h5>
+        </div>
       </div>
-      <div className="p-2 bg-white shadow-sm flex-auto">
+      <div className="flex">
         {questions[currentQuestion].typeOfQuestion === 'simple' ? (
           <OneChoice
             questions={questions}
@@ -31,7 +24,7 @@ function Quiz({questions, currentQuestion, handleAnswerButtonClick}) {
           />
         )}
       </div>
-    </div>
+    </React.Fragment>
   )
 }
 
