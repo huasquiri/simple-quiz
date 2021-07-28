@@ -15,7 +15,7 @@ function OneChoice({questions, currentQuestion, handleAnswerButtonClick}) {
                 }
               ])
             }
-            className="bg-white p-4 m-1 w-full h-screen text-2xl rounded-lg shadow-lg hover:bg-yellow-200 hover:text-yellow-500"
+            className="bg-white p-4 m-1 w-full text-2xl rounded-lg shadow-lg hover:bg-yellow-200 hover:text-yellow-500"
           >
             {options.answer}
           </button>
