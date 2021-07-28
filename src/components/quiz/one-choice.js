@@ -6,7 +6,15 @@ function OneChoice({questions, currentQuestion, handleAnswerButtonClick}) {
       {questions[currentQuestion].answers.map((options, index) => (
         <div key={`option-${index}`} className="p-1 w-6/12">
           <button
-            onClick={() => handleAnswerButtonClick()}
+            onClick={() =>
+              handleAnswerButtonClick([
+                {
+                  question: `quiz-${currentQuestion}`,
+                  profile: options.profile,
+                  points: options.points
+                }
+              ])
+            }
             className="bg-white p-4 m-1 w-full h-screen text-2xl rounded-lg shadow-lg hover:bg-yellow-200 hover:text-yellow-500"
           >
             {options.answer}
