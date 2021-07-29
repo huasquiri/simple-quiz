@@ -3,7 +3,8 @@ import ResultsQuiz from './quiz/results'
 import Quiz from './quiz'
 import questionsTogezer from '../data/questions-togezer'
 import getAllScores from '../utils/get-all-scores'
-
+// import sampleQuestions from '../data/sample-questions'
+// sampleQuestions
 function Layout() {
   const copyQuestions = questionsTogezer
   const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -56,14 +57,14 @@ function Layout() {
           handleAnswerButtonClick={handleAnswerButtonClick}
         />
       )}
-      <div className="p-2 rounded-lg shadow-md flex justify-center">
+      {/* <div className="p-2 rounded-lg shadow-md flex justify-center">
         <div className="bg-white rounded-lg shadow-md flex-auto m-1 p-5">
           <pre>{JSON.stringify(getAllScores(answer), null, 2)}</pre>
         </div>
         <div className="bg-white rounded-lg shadow-md flex-auto m-1 p-5">
           <pre>{JSON.stringify(answer.flat(), null, 2)}</pre>
         </div>
-      </div>
+      </div> */}
     </React.Fragment>
   )
 }

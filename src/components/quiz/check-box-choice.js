@@ -1,10 +1,17 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 function CheckBoxChoice({handleMultipleChoice, options}) {
   const [selected, setSelected] = useState(false)
 
+  useEffect(() => {
+    console.log('mount checkbox component')
+
+    return () => {
+      console.log('unmount checkbox componet')
+    }
+  }, [])
+
   function handleSelected(evt) {
-    console.log(evt.target.checked)
     if (evt.target.checked) {
       setSelected(true)
     } else {
@@ -22,7 +29,7 @@ function CheckBoxChoice({handleMultipleChoice, options}) {
         }}
         checked={selected}
       />
-      <pre>{JSON.stringify(selected)}</pre>
+      {/* <pre>{JSON.stringify(selected)}</pre> */}
     </React.Fragment>
   )
 }

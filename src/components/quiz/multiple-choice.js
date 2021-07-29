@@ -45,9 +45,9 @@ function MultipleChoice({questions, currentQuestion, handleAnswerButtonClick}) {
           </div>
         ))}
       </div>
-      <div className="flex flex-auto rounded-lg shadow-md bg-white m-2 p-5">
+      {/* <div className="flex flex-auto rounded-lg shadow-md bg-white m-2 p-5">
         <pre>{JSON.stringify(opt, null, 2)}</pre>
-      </div>
+      </div> */}
     </div>
   )
 }
