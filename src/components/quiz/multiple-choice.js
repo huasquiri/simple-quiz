@@ -1,57 +1,34 @@
 import React, {useState} from 'react'
-
-function CheckBoxChoice({index, handleMultipleChoice, options}) {
-  const [selected, setSelected] = useState(false)
-
-  function handleSelected(evt) {
-    console.log(evt.target.checked ? 'hola' : 'no se pudo', selected)
-    if (evt.target.checked) {
-      setSelected(true)
-    } else {
-      setSelected(false)
-    }
-  }
-  return (
-    <input
-      type="checkbox"
-      name={`quiz-${index}`}
-      onChange={(evt) => {
-        handleSelected(evt)
-        if (evt.target.checked !== false) {
-          handleMultipleChoice(options)
-        }
-      }}
-      checked={selected}
-    />
-  )
-}
+import NextQuestionBtn from './next-question-btn'
+import CheckBoxChoice from './check-box-choice'
 
 function MultipleChoice({questions, currentQuestion, handleAnswerButtonClick}) {
-  const [options, setOptions] = useState([])
+  const [opt, setOpt] = useState([])
 
-  function handleMultipleChoice(options) {
-    setOptions((prevState) => [
-      ...prevState,
-      {
-        question: `quiz-${currentQuestion}`,
-        profile: options.profile,
-        points: options.points
-      }
-    ])
+  function handleMultipleChoice(evt, options) {
+    if (evt.target.checked) {
+      setOpt((prevState) => [
+        ...prevState,
+        {
+          question: `quiz-${currentQuestion}`,
+          profile: evt.target.value,
+          points: options.points
+        }
+      ])
+    } else {
+      const newOptions = opt.filter((o) => o.profile !== evt.target.value)
+      setOpt(newOptions)
+    }
   }
   return (
     <div>
       <div>
         <div className="text-right">
-          <button
-            onClick={() => {
-              handleAnswerButtonClick(options)
-              setOptions([])
-            }}
-            className="bg-yellow-500 text-white p-2 m-2 rounded-lg w-2/12 sm:w-2/12 md:w-2/12 lg:w-2/12"
-          >
-            Suivant
-          </button>
+          <NextQuestionBtn
+            handleAnswerButtonClick={handleAnswerButtonClick}
+            options={opt}
+            setOptions={setOpt}
+          />
         </div>
       </div>
       <div className="flex flex-col flex-auto m-2 bg-white rounded-lg shadow-lg">
@@ -68,7 +45,9 @@ function MultipleChoice({questions, currentQuestion, handleAnswerButtonClick}) {
           </div>
         ))}
       </div>
-      {/* <pre>{JSON.stringify(options, null, 2)}</pre> */}
+      <div className="flex flex-auto rounded-lg shadow-md bg-white m-2 p-5">
+        <pre>{JSON.stringify(opt, null, 2)}</pre>
+      </div>
     </div>
   )
 }

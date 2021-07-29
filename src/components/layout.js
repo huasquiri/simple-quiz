@@ -2,19 +2,8 @@ import React, {useState} from 'react'
 import ResultsQuiz from './quiz/results'
 import Quiz from './quiz'
 import questionsTogezer from '../data/questions-togezer'
-import {groupBy, prop} from 'ramda'
-function getAllScores(answer) {
-  const results = groupBy(prop('profile'), answer.flat())
+import getAllScores from '../utils/get-all-scores'
 
-  const scores = Object.keys(results).reduce((newObj, key) => {
-    newObj[key] = results[key].length
-
-    return newObj
-  }, {})
-
-  // console.log(scores)
-  return scores
-}
 function Layout() {
   const copyQuestions = questionsTogezer
   const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -39,7 +28,10 @@ function Layout() {
         {currentQuestion > 0 ? (
           <button
             className="p-2 my-2 mx-2 bg-yellow-500 text-white rounded-sm"
-            onClick={() => setCurrentQuestion(0)}
+            onClick={() => {
+              setCurrentQuestion(0)
+              setAnswer([])
+            }}
           >{`Retour à la page d'accueil`}</button>
         ) : (
           <div></div>
@@ -64,9 +56,13 @@ function Layout() {
           handleAnswerButtonClick={handleAnswerButtonClick}
         />
       )}
-      <div className="p-2 m-2 bg-gray-300 rounded-md w-10/12 max-w-lg">
-        <h3>Answers</h3>
-        <pre>{JSON.stringify(getAllScores(answer), null, 2)}</pre>
+      <div className="p-2 rounded-lg shadow-md flex justify-center">
+        <div className="bg-white rounded-lg shadow-md flex-auto m-1 p-5">
+          <pre>{JSON.stringify(getAllScores(answer), null, 2)}</pre>
+        </div>
+        <div className="bg-white rounded-lg shadow-md flex-auto m-1 p-5">
+          <pre>{JSON.stringify(answer.flat(), null, 2)}</pre>
+        </div>
       </div>
     </React.Fragment>
   )
