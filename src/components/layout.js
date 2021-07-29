@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React, {useState} from 'react'
-import ResultsQuiz from './quiz/results'
+// import ResultsQuiz from './quiz/results'
 import Quiz from './quiz'
 import questionsTogezer from '../data/questions-togezer'
-import getAllScores from '../utils/get-all-scores'
+// import getAllScores from '../utils/get-all-scores'
 // import sampleQuestions from '../data/sample-questions'
 // sampleQuestions
 function Layout() {
@@ -45,11 +46,7 @@ function Layout() {
       </div>
 
       {showScore ? (
-        <ResultsQuiz
-          setShowScore={setShowScore}
-          setCurrentQuestion={setCurrentQuestion}
-          scoresData={getAllScores(answer)}
-        />
+        <div></div>
       ) : (
         <Quiz
           questions={copyQuestions}
